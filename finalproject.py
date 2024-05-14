@@ -52,7 +52,7 @@ def main():
             print("Score for Player", player + 1, ":", scores[player])
             rounds +=1
 
-plt.bar(range(1, players_number + 1), scores, color='skyblue')
+plt.bar(range(1, players_number + 1), scores, color='green') # Graph (Advanced Topics Requirement)
 plt.xlabel('Player')
 plt.ylabel('Score')
 plt.title('Scores for Each Player')
