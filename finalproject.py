@@ -4,6 +4,7 @@
 import random
 import os
 import rolling_dice_module
+import matplotlib.pyplot as plt
 
 def main():
     print("Welcome to the 'Tuple Out' Dice Game! There will be two rounds!")
@@ -50,6 +51,13 @@ def main():
             
             print("Score for Player", player + 1, ":", scores[player])
             rounds +=1
+
+plt.bar(range(1, players_number + 1), scores, color='skyblue')
+plt.xlabel('Player')
+plt.ylabel('Score')
+plt.title('Scores for Each Player')
+plt.xticks(range(1, players_number + 1))
+plt.show()
 
 def test_cases():
     """Test cases for the rolling_dice and score functions."""
