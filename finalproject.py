@@ -3,17 +3,7 @@
 
 import random
 import os
-
-def rolling_dice():
-    """Roll three dice and return the result."""
-    return [random.randint(1, 6) for _ in range(3)]
-
-def score(dice):
-    """Calculate the score based on the rolled dice."""
-    if len(set(dice)) == 1:  
-        return 0
-    else:
-        return sum(dice)
+import rolling_dice_module
 
 def main():
     print("Welcome to the 'Tuple Out' Dice Game! There will be two rounds!")
@@ -26,7 +16,7 @@ def main():
         for player in range(players_number):
             print(f"Player {player + 1}'s turn:")
             turns = 0
-            dice = rolling_dice()
+            dice = rolling_dice_module.rolling_dice() # Rolling dice function from other module (3.2 requirement)
             print("You rolled: ", dice)
 
             if len(set(dice)) == 1:
@@ -50,7 +40,7 @@ def main():
                         else:
                             print("Invalid choice.")
                 
-                turns = score(dice)
+                turns = rolling_dice_module(dice) # Score function from other module (3.2 requirement)
                 print("Score for the turn:", turns)
             
             if turns == 0:
@@ -65,12 +55,12 @@ def test_cases():
     """Test cases for the rolling_dice and score functions."""
     print("Testing roll_dice function:")
     for _ in range(5):
-        print("Roll result:", rolling_dice())
+        print("Roll result:", rolling_dice_module.rolling_dice())
 
     print("\nTesting score function:")
     test_scores = [[1, 1, 1], [1, 2, 3], [4, 4, 4], [5, 5, 6], [2, 3, 3]]
     for dice in test_scores:
-        print("Dice:", dice, "Score:", score(dice))
+        print("Dice:", dice, "Score:", rolling_dice_module(dice))
 
 def write_to_file(score):
     try:
